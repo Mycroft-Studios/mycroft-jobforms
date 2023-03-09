@@ -1,6 +1,7 @@
 DiscordLogs = {
     Webhooks = {
         default = '',
+        police = "",
     },
 
     Colors = { -- https://www.spycolor.com/
