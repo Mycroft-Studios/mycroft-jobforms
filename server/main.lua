@@ -59,7 +59,7 @@ RegisterNetEvent("jobforms:apply", function(AreaIndex, Answers)
     for i=1, #(Questions) do
         Fields[#Fields + 1] = {name = Questions[i].label, value = Questions[i].Answer, inline = false}
     end
-    Discord(Config.Areas[AreaIndex.webhook, Config.Areas[AreaIndex].label, "green", Fields)
+    Discord(Config.Areas[AreaIndex].webhook, Config.Areas[AreaIndex].label, "green", Fields)
     Player(source).state:set("ApplicationCooldown", true, true)
     SetTimeout(Config.ApplicationSettings.Cooldown.time, function()
         Player(source).state:set("ApplicationCooldown", false, true)
