@@ -16,6 +16,7 @@ Config.AuthorAvatar = "https://cdn.discordapp.com/emojis/939245183621558362.webp
 Config.Areas = {
     {
         label = "Police Application",
+        webhook = "police", -- note if not present, it will send to "default"
         Coords = vector3(441.5298, -981.1339, 30.6896),
         Blip = {
             enabled = false,
