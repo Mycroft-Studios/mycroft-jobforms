@@ -1,6 +1,6 @@
 function DoApplication(AreaIndex)
     local area = Config.Areas[AreaIndex]
-    local Questions = Config.ApplicationSettings.Questions
+    local Questions = area.Questions
     local input = lib.inputDialog(area.label, Questions)
     if not input then return end
     lib.notify({

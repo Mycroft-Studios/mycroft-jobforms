@@ -21,13 +21,14 @@ Overall, the job application script for FiveM is a powerful and essential tool f
 - Input Santisation before data is sent to Discord
 - Cool embed formatting
 - Each Job can have their own webhook
+- Each Job can have their own Form
 
 ### Line Count
 
-    - 348 (Including Config & fxmanifest & ReadMe)
-    - 305 (Including Config & fxmanifest)
-    - 282 (Including Config)
-    - 159 (Excluding config/fxmanfiest/readme)
+    - 335 (Including Config & fxmanifest & ReadMe)
+    - 289 (Including Config & fxmanifest)
+    - 266 (Including Config)
+    - 157 (Excluding config/fxmanfiest/readme)
 
 ## Preview
 

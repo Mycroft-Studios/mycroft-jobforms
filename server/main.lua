@@ -47,7 +47,7 @@ RegisterNetEvent("jobforms:apply", function(AreaIndex, Answers)
     if dist > 10.0 then
         return
     end
-    local Questions = Config.ApplicationSettings.Questions
+    local Questions = Config.Areas[AreaIndex].Questions
     for i=1, #(Answers) do
         local answer = Sanitize(tostring(Answers[i]))
         if not answer or answer == "" then answer = "N/A" end
