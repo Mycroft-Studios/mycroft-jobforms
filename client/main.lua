@@ -43,17 +43,15 @@ CreateThread(function()
             local area = Config.Areas[i]
             exports['qb-target']:AddCircleZone(Config.Areas[i], area.Coords, area.TargetSettings.radius,
                 {
-                    -- The name has to be unique, the coords a vector3 as shown and the 1.5 is the radius which has to be a float value
-                    name = area.label,                     -- This is the name of the zone recognized by PolyZone, this has to be unique so it doesn't mess up with other zones
-                    debugPoly = area.TargetSettings.debug, -- This is for enabling/disabling the drawing of the box, it accepts only a boolean value (true or false), when true it will draw the polyzone in green
+                    name = area.label,
+                    debugPoly = area.TargetSettings.debug,
                 }, {
-                    options = {                            -- This is your options table, in this table all the options will be specified for the target to accept
+                    options = {
                         {
-                            -- This is the first table with options, you can make as many options inside the options table as you want
-                            num = 1,                               -- This is the position number of your option in the list of options in the qb-target context menu (OPTIONAL)
-                            icon = 'fas fa-example',               -- This is the icon that will display next to this trigger option
-                            label = area.TargetSettings.label,     -- This is the label of this option which you would be able to click on to trigger everything, this has to be a string
-                            targeticon = area.TargetSettings.icon, -- This is the icon of the target itself, the icon changes to this when it turns blue on this specific option, this is OPTIONAL
+                            num = 1,
+                            icon = 'fas fa-example',
+                            label = area.TargetSettings.label,
+                            targeticon = area.TargetSettings.icon,
                             action = function()
                                 DoApplication(i)
                             end,
@@ -78,8 +76,8 @@ CreateThread(function()
                 if self.area.MarkerSettings.DrawMarker then
                     local m_set = self.area.MarkerSettings
                     DrawMarker(m_set.type, self.coords.x, self.coords.y, self.coords.z, 0, 0, 0, m_set.rotation.x,
-                    m_set.rotation.y, m_set.rotation.z, m_set.size.x, m_set.size.y, m_set.size.z, m_set.colour.r,
-                    m_set.colour.g, m_set.colour.b, m_set.colour.a, false, true, 2, nil, nil, false)
+                        m_set.rotation.y, m_set.rotation.z, m_set.size.x, m_set.size.y, m_set.size.z, m_set.colour.r,
+                        m_set.colour.g, m_set.colour.b, m_set.colour.a, false, true, 2, nil, nil, false)
                 end
 
                 if self.currentDistance < 1 then
