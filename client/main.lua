@@ -49,7 +49,6 @@ CreateThread(function()
                     options = {
                         {
                             num = 1,
-                            icon = 'fas fa-example',
                             label = area.TargetSettings.label,
                             targeticon = area.TargetSettings.icon,
                             action = function()
@@ -66,7 +65,7 @@ CreateThread(function()
                             end,
                         }
                     },
-                    distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
+                    distance = 2.5,
                 })
         else
             local point = lib.points.new(Config.Areas[i].Coords, Config.Areas[i].MarkerSettings.Distance, {
