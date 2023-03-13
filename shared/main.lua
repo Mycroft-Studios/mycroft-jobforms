@@ -1,6 +1,7 @@
 Config = {}
 
 Config.UseTarget = false -- ox target support
+Config.QBTarget = true -- qb target support
 
 -- Discord Log Settings
 Config.ServerName = "Example Roleplay"
