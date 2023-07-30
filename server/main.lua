@@ -43,7 +43,7 @@ function TableToString(table)
         if not answer or answer == "" then answer = "N/A" end
         if Config.ChangeBoolsToStrings and answer == "true" then answer = "Yes" end
         if Config.ChangeBoolsToStrings and answer == "false" then answer = "No" end
-        string = string .. (Config.MakeAnswersBold and ("**%s**: **%s** \n"):format(answer) or ("%s: %s"):format(answer))
+        string = string .. (Config.MakeAnswersBold and ("**%s**: **%s** \n"):format(k, answer) or ("%s: %s"):format(k, answer))
     end
     return string
 end
