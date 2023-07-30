@@ -36,6 +36,33 @@ function Sanitize(str)
 		end)
 end
 
+function TableToString(table)
+    local string = ""
+    for k,v in pairs(table) do
+        local answer = Sanitize(tostring(v))
+        if not answer or answer == "" then answer = "N/A" end
+        if Config.ChangeBoolsToStrings and answer == "true" then answer = "Yes" end
+        if Config.ChangeBoolsToStrings and answer == "false" then answer = "No" end
+        string = string .. (Config.MakeAnswersBold and ("**%s**: **%s** \n"):format(answer) or ("%s: %s"):format(answer))
+    end
+    return string
+end
+
+function ConvertAnswers(Questions, Answers)
+    for i=1, #(Answers) do
+        if type(Answers[i]) == "table" then
+            Questions[i].Answer = TableToString(Answers[i])
+        else
+            local answer = Sanitize(tostring(Answers[i]))
+            if not answer or answer == "" then answer = "N/A" end
+            if Config.ChangeBoolsToStrings and answer == "true" then answer = "Yes" end
+            if Config.ChangeBoolsToStrings and answer == "false" then answer = "No" end
+            Questions[i].Answer = Config.MakeAnswersBold and ("**%s**"):format(answer) or answer
+        end
+    end
+    return Questions
+end
+
 RegisterNetEvent("jobforms:apply", function(AreaIndex, Answers)
     local source = source
     if Player(source).state.ApplicationCooldown then 
@@ -47,14 +74,7 @@ RegisterNetEvent("jobforms:apply", function(AreaIndex, Answers)
     if dist > 10.0 then
         return
     end
-    local Questions = Config.Areas[AreaIndex].Questions
-    for i=1, #(Answers) do
-        local answer = Sanitize(tostring(Answers[i]))
-        if not answer or answer == "" then answer = "N/A" end
-        if Config.ChangeBoolsToStrings and answer == "true" then answer = "Yes" end
-        if Config.ChangeBoolsToStrings and answer == "false" then answer = "No" end
-        Questions[i].Answer = Config.MakeAnswersBold and ("**%s**"):format(answer) or answer
-    end
+    local Questions = ConvertAnswers(Config.Areas[AreaIndex].Questions, Answers)
     local Fields = {}
     for i=1, #(Questions) do
         Fields[#Fields + 1] = {name = Questions[i].label, value = Questions[i].Answer, inline = false}
